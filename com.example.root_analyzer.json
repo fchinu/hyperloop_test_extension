@@ -1,0 +1,9 @@
+{
+    "name": "com.example.root_analyzer",
+    "description": "ROOT file analyzer",
+    "path": "/full/path/to/run_analysis.sh",
+    "type": "stdio",
+    "allowed_origins": [
+      "chrome-extension://abcd1234/"
+    ]
+  }
