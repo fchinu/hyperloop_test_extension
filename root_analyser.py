@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 ROOT.gROOT.SetBatch(True)  # Run in batch mode to avoid GUI popups
 
-def process_ao2d(infile_name):
+def process_ao2d(infile_name, options):
     pdf_path = "/home/fabrizio/Desktop/test_downloader/plots/distributions.pdf"
     
     with uproot.open(infile_name) as f:
