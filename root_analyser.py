@@ -57,15 +57,13 @@ def process_analysis_results(infile_name, options):
     # Project the THnSparse into a TH1D for each dimension
     projections = [sparse.Projection(i) for i in range(sparse.GetNdimensions())]
 
-    for i_proj, proj in enumerate(projections):
-        c = ROOT.TCanvas(f"c_{i_proj}", f"Projection {i_proj}", 800, 600)
+    c = ROOT.TCanvas("c", "Projection Canvas", 800, 600)
+    c.SaveAs(f"{pdf_path}[")
+    for _, proj in enumerate(projections):
         proj.Draw()
-        if i_proj == 0:
-            c.SaveAs(f"{pdf_path}[")
-        elif i_proj == len(projections) - 1:
-            c.SaveAs(f"{pdf_path}]")
-        else:
-            c.SaveAs(pdf_path)
+        c.SaveAs(pdf_path)
+
+    c.SaveAs(f"{pdf_path}]")
     
     # Open PDF in Chrome
     try:
